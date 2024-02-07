@@ -15,6 +15,8 @@ class GRETA:
     def step_rotors(self):
         self.G = self.control_rotor[self.G]
         self.Q = self.sub_rotor[self.Q]
+        self.sub_rotor.append(self.sub_rotor.pop(self.Q))
+        self.control_rotor.append(self.control_rotor.pop(self.G))
         for x in range(self.G):
             self.sub_rotor.append(self.sub_rotor.pop(0))
         for x in range(self.Q):
